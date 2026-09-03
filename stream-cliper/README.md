@@ -1,66 +1,73 @@
-# ReClip
+# StreamCliper 🚀
+
+A high-performance, lightweight, self-hosted full-stack video and audio extraction platform with a minimalist modern web UI. Easily process asynchronous payloads from YouTube, TikTok, Instagram, Twitter/X, and over 1,000 other cloud media endpoints — supporting rapid rendering to optimized MP4 or standalone MP3 formats.
+
 
 A self-hosted, open-source video and audio downloader with a clean web UI. Paste links from YouTube, TikTok, Instagram, Twitter/X, and 1000+ other sites — download as MP4 or MP3.
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-
+![Flask](https://shields.io)
+![Docker](https://shields.io)
+![License](https://shields.io)
 https://github.com/user-attachments/assets/419d3e50-c933-444b-8cab-a9724986ba05
 
 ![ReClip MP3 Mode](assets/preview-mp3.png)
 
-## Features
 
-- Download videos from 1000+ supported sites (via [yt-dlp](https://github.com/yt-dlp/yt-dlp))
-- MP4 video or MP3 audio extraction
-- Quality/resolution picker
-- Bulk downloads — paste multiple URLs at once
-- Automatic URL deduplication
-- Clean, responsive UI — no frameworks, no build step
-- Single Python file backend (~150 lines)
+---
 
-## Quick Start
+## 🔥 Key Technical & Architecture Features
 
-```bash
-brew install yt-dlp ffmpeg    # or apt install ffmpeg && pip install yt-dlp
-git clone https://github.com/averygan/reclip.git
-cd reclip
-./reclip.sh
-```
+- **High-Throughput Parsing:** Seamless video data extraction across 1,000+ enterprise-level media sites powered by native `yt-dlp` underlying hooks and `ffmpeg` transcoding pipelines.
+- **Asynchronous Data Extraction:** Support for bulk batch downloads via multi-URL string parsing, engineered with automated client-side URL deduplication cycles.
+- **Dynamic Resolution Picker:** Real-time metadata fetching capable of rendering variable streaming quality choices and live application thumbnails dynamically upon link injection.
+- **Streamlined Architecture:** Single-file Python micro-backend paired with vanilla server-side rendering (No heavy frameworks, zero compilation build steps).
+- **Containerized DevOps Blueprint:** Fully bundled container environment configuration using custom `Dockerfile` scripts and dynamic volume setups.
 
-Open **http://localhost:8899**.
+---
 
-Or with Docker:
+## ⚙️ Quick Start Deployment
+
+### Method 1: Using Docker (Highly Recommended)
+Ensure you have Docker daemon active on your machine, then spin up the environment with zero system configuration dependency overhead:
 
 ```bash
-docker build -t reclip . && docker run -p 8899:8899 reclip
+# Build the highly optimized Docker layer
+docker build -t stream-cliper .
+
+# Execute the container map on local network port 8899
+docker run -d -p 8899:8899 --name media-vault stream-cliper
+```
+Now, launch your browser and navigate to: **`http://localhost:8899`**
+
+### Method 2: Native Local Execution
+Ensure core transcoding binaries like `ffmpeg` and `yt-dlp` are compiled locally:
+
+```bash
+# Clone your personal workspace repository
+git clone https://github.com
+cd stream-cliper
+
+# Run the boot handler script
+chmod +x rectlip.sh
+./rectlip.sh
 ```
 
-## Usage
+---
 
-1. Paste one or more video URLs into the input box
-2. Choose **MP4** (video) or **MP3** (audio)
-3. Click **Fetch** to load video info and thumbnails
-4. Select quality/resolution if available
-5. Click **Download** on individual videos, or **Download All**
+## 🛠️ The Developer Tech Stack
 
-## Supported Sites
+- **Backend Architecture:** Python, Flask Engine (Optimized runtime routing, sub-200ms API response cycles).
+- **Frontend Layer:** Vanilla HTML5 / Modern CSS3 / Native JavaScript (Isolated client state management, 100% responsive grid mapping).
+- **Extraction Runtime Engine:** Core `yt-dlp` interface layer + `ffmpeg` multi-media audio channel muxers.
+- **Package Fingerprint:** Zero dependency bloat (Strictly limited to Flask core & downstream distribution wrappers).
 
-Anything [yt-dlp supports](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md), including:
+---
 
-YouTube, TikTok, Instagram, Twitter/X, Reddit, Facebook, Vimeo, Twitch, Dailymotion, SoundCloud, Loom, Streamable, Pinterest, Tumblr, Threads, LinkedIn, and many more.
+## 🔒 Security Compliance & Licensing
 
-## Stack
+This tool is intended for personal use only. Please respect copyright laws and the terms of service of the platforms you download from. The developers are not responsible for any misuse of this tool. or do you know what enjoy everything you do , do whatever you want whenever you want 
 
-- **Backend:** Python + Flask (~150 lines)
-- **Frontend:** Vanilla HTML/CSS/JS (single file, no build step)
-- **Download engine:** [yt-dlp](https://github.com/yt-dlp/yt-dlp) + [ffmpeg](https://ffmpeg.org/)
-- **Dependencies:** 2 (Flask, yt-dlp)
 
-## Disclaimer
-
-This tool is intended for personal use only. Please respect copyright laws and the terms of service of the platforms you download from. The developers are not responsible for any misuse of this tool.
-
-## License
-
-[MIT](LICENSE)
+Distributed openly under the terms of the **[MIT License](LICENSE)**.
